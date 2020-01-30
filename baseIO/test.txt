@@ -1,0 +1,12 @@
+总用量 72
+-rwxrwxr-x. 1 dev dev 8712 1月  20 22:09 filedesc
+-rw-rw-r--. 1 dev dev  382 1月  20 22:09 filedesc.c
+-rw-rw-r--. 1 dev dev  134 1月  21 12:59 makefile
+-rwxrwxr-x. 1 dev dev 9176 1月  21 13:10 minishell
+-rw-rw-r--. 1 dev dev 2519 1月  21 13:12 minishell.c
+-rwxrwxr-x. 1 dev dev 8920 1月  20 20:05 review
+-rw-rw-r--. 1 dev dev 2116 1月  20 20:05 review.c
+-rwxrwxr-x. 1 dev dev 8968 1月  20 21:03 systemio
+-rw-rw-r--. 1 dev dev 1540 1月  20 22:25 systemio.c
+-rwxrwxr-x. 1 dev dev    0 1月  21 13:12 test.txt
+-rw-rw-r--. 1 dev dev    2 1月  20 18:45 tmp.txt
