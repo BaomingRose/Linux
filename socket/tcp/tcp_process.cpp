@@ -64,6 +64,7 @@ int main(int argc, char* argv[]) {
       }
       clisock.Close();
     }
+	//这个套接字交给子进程了，父进程只负责监听，所以要干掉这个套接字
     clisock.Close();
   }
   //7.关闭套接字
