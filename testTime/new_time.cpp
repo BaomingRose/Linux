@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 int main() {
@@ -33,6 +34,10 @@ int main() {
     cout << "tm.tm_hour:" << stm_ptr->tm_hour << endl;
     cout << "tm.tm_min:" << stm_ptr->tm_min << endl;
     cout << "tm.tm_sec:" << stm_ptr->tm_sec << endl;
+
+    char buf[1024];
+    strftime(buf, 1024, "%Y-%m-%d %H:%M:%S", stm_ptr);
+    cout << "经过使用strftime函数格式化后的日期为：" << buf << endl;
 
     return 0;
 }
