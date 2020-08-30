@@ -1,0 +1,48 @@
+    gdb前提；gcc/g++编译的时候一定要加-g调式选项
+gdb常用命令：
+
+    shell command       gdb环境下执行shell命令
+
+    # 查看代码
+    l（list）             可以看见源代码
+    listsize              源程序行数
+
+    # 管理断点
+    b（break）+ num       在num行打断点
+    b + filename ： num   （第二种方式）    （.c文件）
+    i（info） b（break）  查看哪里有断点
+    delete b [num]        删除断点
+    disable [num]         第num个断点不生效
+    enable [num]          第num个断点生效
+
+    # 启动
+    start                 开始调式，停止第一条语句前 （没设置断点也可以）
+    r（run）              让程序跑起来    //让程序跑一次即可，跑到第一个断点
+
+    n（next）             逐过程单步调试,不进入函数单步
+    s（step）             逐语句调试，可以进入函数单步
+    fin(finish)           继续运行函数内部的剩余代码，并退出函数
+    c（continue）         继续执行 走到下一个断点
+
+    # 调试过程中观察变量
+    watch 表达式          对变量i设置观察点，当i发生变化时停止
+    p（print）            打印代码中变量的值
+                            & 获取变量的地址
+                            {type}adrexp  查看地址中数据  例：p{float}0x7fffffffdcac
+                            @ 查看多个数组元素   p arr@10
+    display               跟踪一个变量的值
+    whatis                查看变量类型
+    i locals(info)        查看当前作用域临时变量的值
+    bt                    查看调用堆栈    where和bt一样
+    f num                 num为堆栈号，表示进入堆栈
+
+    k(kill)               终止调试
+
+（事中）
+gdb -p 进程号    调试进程 可以看到运行的程序卡到哪里
+gdb attach 进程号    同上
+事中更喜欢用pstack看看压栈情况
+
+进程崩溃（事后）
+gdb 可执行程序 coredump文件    bt      p      i locals
+disassemble    查看汇编代码
