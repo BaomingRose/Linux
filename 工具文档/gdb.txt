@@ -46,3 +46,18 @@ gdb attach 进程号    同上
 进程崩溃（事后）
 gdb 可执行程序 coredump文件    bt      p      i locals
 disassemble    查看汇编代码
+
+
+gdb调式多线程：
+	首先启动多线程
+	然后不使用gdb时可以使用ps aux | grep ** 查看进程、使用ps -aL | grep ** 查看当前进程所有线程
+					   使用pstree -p 主线程id 查看主线程和新线程关系
+					   使用pstack 线程id 可以查看具体某个线程的压栈情况
+	然后通过 gdb attach 主线程id  启用gdb（启动的时候，进程就停下来了）
+			使用info inferiors查看进程，info threads 查看线程，其中列表中头含有*表示当前线程，
+		（重要）通过thread n 切换到第n个线程，通过bt查看压栈情况
+			只运行当前线程： set scheduler-locking on 和所有线程并发运行： set scheduler-locking off
+			
+			break testThread.cpp:5 thread all（例：在相应函数的位置设置断点break wait）	在所有线程中相应的行上设置断点
+			thread apply ID1 ID2 command	让一个或者多个线程执行GDB命令command
+			thread apply all command	让所有被调试线程执行GDB命令command
